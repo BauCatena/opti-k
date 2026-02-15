@@ -20,8 +20,11 @@ interface FlipCardProps {
   onToggle: (id: Category) => void
 }
 
+const isUnisexCategory = (t: Category) =>
+  t === "sol-urbano" || t === "sol-deportivo"
+
 function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: FlipCardProps) {
-  const handleGenderSelect = (gender: Gender) => {
+  const handleNavigate = (gender?: Gender) => {
     const categoryMap: Record<Category, string> = {
       recetados: "Recetados",
       "sol-urbano": "Sol Urbano",
@@ -35,8 +38,10 @@ function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: Flip
       nina: "Nina",
     }
     const category = categoryMap[type]
-    const genderParam = genderParamMap[gender]
-    window.location.href = `/catalogo?categoria=${category}&genero=${genderParam}`
+    const baseUrl = `/catalogo?categoria=${category}`
+    const url =
+      gender !== undefined ? `${baseUrl}&genero=${genderParamMap[gender]}` : baseUrl
+    window.location.href = url
   }
 
   const bgImageMap: Record<Category, string> = {
@@ -50,15 +55,16 @@ function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: Flip
   }
   const bgImage = bgImageMap[type]
 
-  const genderOptions: { label: string; value: Gender }[] =
-    type === "nino"
+  const backOptions: { label: string; value?: Gender }[] = isUnisexCategory(type)
+    ? [{ label: "Ver colección", value: undefined }]
+    : type === "nino"
       ? [
-          { label: "Nino", value: "nino" },
-          { label: "Nina", value: "nina" },
+          { label: "Nino", value: "nino" as Gender },
+          { label: "Nina", value: "nina" as Gender },
         ]
       : [
-          { label: "Hombre", value: "hombre" },
-          { label: "Mujer", value: "mujer" },
+          { label: "Hombre", value: "hombre" as Gender },
+          { label: "Mujer", value: "mujer" as Gender },
         ]
 
   return (
@@ -118,15 +124,15 @@ function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: Flip
             </p>
 
             <div className="flex flex-col gap-4 w-full max-w-xs">
-              {genderOptions.map((option, index) => {
-                const Icon = index === 0 ? User : Users
+              {backOptions.map((option, index) => {
+                const Icon = backOptions.length === 1 ? Users : index === 0 ? User : Users
 
                 return (
                   <OptikHoverButton
-                    key={option.value}
+                    key={option.value ?? "unisex"}
                     onClick={(e) => {
                       e.stopPropagation()
-                      handleGenderSelect(option.value)
+                      handleNavigate(option.value)
                     }}
                     title={option.label}
                     description="Ver coleccion"
@@ -171,7 +177,7 @@ export function CategoryFlipCards() {
           <FlipCard
             id="recetados"
             type="recetados"
-            title="Lentes Recetados"
+            title="Recetados"
             subtitle="Precision para tu dia a dia"
             icon={<Glasses className="w-8 h-8 text-background" />}
             isFlipped={activeCardId === "recetados"}
@@ -180,7 +186,7 @@ export function CategoryFlipCards() {
           <FlipCard
             id="sol-urbano"
             type="sol-urbano"
-            title="Lentes de Sol Urbanos"
+            title="Sol Urbanos"
             subtitle="Estilo para la ciudad"
             icon={<Sun className="w-8 h-8 text-background" />}
             isFlipped={activeCardId === "sol-urbano"}
@@ -189,7 +195,7 @@ export function CategoryFlipCards() {
           <FlipCard
             id="sol-deportivo"
             type="sol-deportivo"
-            title="Lentes de Sol Deportivos"
+            title="Sol Deportivos"
             subtitle="Rendimiento y proteccion"
             icon={<Sun className="w-8 h-8 text-background" />}
             isFlipped={activeCardId === "sol-deportivo"}
@@ -198,7 +204,7 @@ export function CategoryFlipCards() {
           <FlipCard
             id="nino"
             type="nino"
-            title="Lentes de Nino"
+            title="Nino"
             subtitle="Comodidad para los mas chicos"
             icon={<Glasses className="w-8 h-8 text-background" />}
             isFlipped={activeCardId === "nino"}
