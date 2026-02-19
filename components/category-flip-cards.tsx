@@ -3,11 +3,11 @@
 import React from "react"
 
 import { useState } from "react"
-import { Glasses, Sun, User, Users } from "lucide-react"
+import { Glasses, Sun, User, Users, Package } from "lucide-react"
 
 import { OptikHoverButton } from "@/components/optik-hover-button"
 
-type Category = "recetados" | "sol-urbano" | "sol-deportivo" | "nino"
+type Category = "recetados" | "sol-urbano" | "sol-deportivo" | "nino" | "accesorios"
 type Gender = "hombre" | "mujer" | "nino" | "nina"
 
 interface FlipCardProps {
@@ -21,7 +21,7 @@ interface FlipCardProps {
 }
 
 const isUnisexCategory = (t: Category) =>
-  t === "sol-urbano" || t === "sol-deportivo"
+  t === "sol-urbano" || t === "sol-deportivo" || t === "accesorios"
 
 function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: FlipCardProps) {
   const handleNavigate = (gender?: Gender) => {
@@ -30,6 +30,7 @@ function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: Flip
       "sol-urbano": "Sol Urbano",
       "sol-deportivo": "Sol Deportivo",
       nino: "Nino",
+      accesorios: "Accesorios",
     }
     const genderParamMap: Record<Gender, string> = {
       hombre: "Hombre",
@@ -52,6 +53,8 @@ function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: Flip
     "sol-deportivo":
       "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&q=80",
     nino: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
+    accesorios:
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
   }
   const bgImage = bgImageMap[type]
 
@@ -208,6 +211,15 @@ export function CategoryFlipCards() {
             subtitle="Comodidad para los mas chicos"
             icon={<Glasses className="w-8 h-8 text-background" />}
             isFlipped={activeCardId === "nino"}
+            onToggle={handleToggle}
+          />
+          <FlipCard
+            id="accesorios"
+            type="accesorios"
+            title="Accesorios"
+            subtitle="Estuches, líquidos y más"
+            icon={<Package className="w-8 h-8 text-background" />}
+            isFlipped={activeCardId === "accesorios"}
             onToggle={handleToggle}
           />
         </div>

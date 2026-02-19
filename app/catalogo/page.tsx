@@ -91,10 +91,42 @@ const products = [
     price: 49.99,
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
   },
+  {
+    id: 11,
+    name: "Estuche clásico",
+    category: "Accesorios",
+    gender: "Unisex",
+    price: 24.99,
+    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80",
+  },
+  {
+    id: 12,
+    name: "Líquido limpiador",
+    category: "Accesorios",
+    gender: "Unisex",
+    price: 12.99,
+    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80",
+  },
+  {
+    id: 13,
+    name: "Paño de microfibra",
+    category: "Accesorios",
+    gender: "Unisex",
+    price: 8.99,
+    image: "https://images.unsplash.com/photo-1633383461175-ee3a4d8d7442?w=400&q=80",
+  },
+  {
+    id: 14,
+    name: "Kit cuidado completo",
+    category: "Accesorios",
+    gender: "Unisex",
+    price: 34.99,
+    image: "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
+  },
 ]
 
 const filters = {
-  category: ["Todos", "Recetados", "Sol Urbano", "Sol Deportivo", "Nino"],
+  category: ["Todos", "Recetados", "Sol Urbano", "Sol Deportivo", "Nino", "Accesorios"],
   gender: ["Todos", "Hombre", "Mujer", "Unisex", "Nino", "Nina"],
 } as const
 
@@ -102,19 +134,19 @@ type Product = (typeof products)[number]
 
 const INSTAGRAM_USERNAME = "_opti.k"
 
-const buildInstagramMessage = (product: Product) => {
+const buildConsultMessage = (product: Product) => {
   if (product.category === "Recetados") {
     return `Hola, me gustaría coordinar una visita para probarme el modelo ${product.name}.`
   }
-
   if (product.category === "Sol Deportivo") {
     return `Hola, me interesan los lentes deportivos del modelo ${product.name}.`
   }
-
   if (product.category === "Sol Urbano") {
     return `Hola, me interesan los lentes urbanos del modelo ${product.name}.`
   }
-
+  if (product.category === "Accesorios") {
+    return `Hola, me interesa el accesorio ${product.name}.`
+  }
   return `Hola, me interesa el modelo ${product.name}.`
 }
 
@@ -283,18 +315,18 @@ export default function CatalogoPage() {
                       type="button"
                       variant="outline"
                       size="sm"
-                      className="mt-2 inline-flex items-center gap-2"
-                      onClick={() => {
-                        const message = buildInstagramMessage(product)
-
-                        if (navigator.clipboard) {
-                          navigator.clipboard.writeText(message).catch(() => {
-                            // ignore clipboard errors
-                          })
+                      className="mt-2 w-full justify-center gap-2"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        const message = buildConsultMessage(product)
+                        if (navigator.clipboard?.writeText) {
+                          navigator.clipboard.writeText(message).catch(() => {})
                         }
-
-                        const url = `https://ig.me/m/${INSTAGRAM_USERNAME}`
-                        window.open(url, "_blank", "noopener,noreferrer")
+                        window.open(
+                          `https://ig.me/m/${INSTAGRAM_USERNAME}`,
+                          "_blank",
+                          "noopener,noreferrer"
+                        )
                       }}
                     >
                       <Instagram className="w-4 h-4" />
