@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { Heart, ArrowLeft } from "lucide-react"
+import { Heart, ArrowLeft, Instagram } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
@@ -97,6 +97,26 @@ const filters = {
   category: ["Todos", "Recetados", "Sol Urbano", "Sol Deportivo", "Nino"],
   gender: ["Todos", "Hombre", "Mujer", "Unisex", "Nino", "Nina"],
 } as const
+
+type Product = (typeof products)[number]
+
+const INSTAGRAM_USERNAME = "_opti.k"
+
+const buildInstagramMessage = (product: Product) => {
+  if (product.category === "Recetados") {
+    return `Hola, me gustaría coordinar una visita para probarme el modelo ${product.name}.`
+  }
+
+  if (product.category === "Sol Deportivo") {
+    return `Hola, me interesan los lentes deportivos del modelo ${product.name}.`
+  }
+
+  if (product.category === "Sol Urbano") {
+    return `Hola, me interesan los lentes urbanos del modelo ${product.name}.`
+  }
+
+  return `Hola, me interesa el modelo ${product.name}.`
+}
 
 type Category = typeof filters.category[number]
 type Gender = typeof filters.gender[number]
@@ -242,7 +262,7 @@ export default function CatalogoPage() {
                     </button>
                   </div>
 
-                  <div className="p-4">
+                  <div className="p-4 flex flex-col gap-2">
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-xs px-2 py-1 rounded-full bg-secondary text-muted-foreground">
                         {product.category}
@@ -258,6 +278,28 @@ export default function CatalogoPage() {
                     <p className="text-lg font-semibold text-foreground">
                       ${product.price.toFixed(2)}
                     </p>
+                    
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="mt-2 inline-flex items-center gap-2"
+                      onClick={() => {
+                        const message = buildInstagramMessage(product)
+
+                        if (navigator.clipboard) {
+                          navigator.clipboard.writeText(message).catch(() => {
+                            // ignore clipboard errors
+                          })
+                        }
+
+                        const url = `https://ig.me/m/${INSTAGRAM_USERNAME}`
+                        window.open(url, "_blank", "noopener,noreferrer")
+                      }}
+                    >
+                      <Instagram className="w-4 h-4" />
+                      Consultar por Instagram
+                    </Button>
                   </div>
                 </div>
               ))}

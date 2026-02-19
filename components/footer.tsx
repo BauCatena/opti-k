@@ -12,24 +12,38 @@ import {
 const faqs = [
   {
     question: "¿Cuál es el tiempo de entrega?",
-    answer: "El tiempo de entrega estándar es de 3-5 días hábiles para envíos nacionales. Para envíos expresos, el tiempo es de 24-48 horas.",
+    answer:
+      "El tiempo de entrega estándar es de 3-5 días hábiles para envíos nacionales. Para envíos expresos, el tiempo es de 24-48 horas.",
   },
   {
     question: "¿Tienen garantía los lentes?",
-    answer: "Sí, todos nuestros productos cuentan con garantía de 1 año contra defectos de fabricación.",
+    answer:
+      "Sí, todos nuestros productos cuentan con garantía de 1 año contra defectos de fabricación.",
   },
   {
     question: "¿Puedo realizar cambios o devoluciones?",
-    answer: "Aceptamos cambios y devoluciones dentro de los primeros 30 días desde la compra, siempre que el producto esté en perfectas condiciones.",
+    answer:
+      "Aceptamos cambios y devoluciones dentro de los primeros 30 días desde la compra, siempre que el producto esté en perfectas condiciones.",
   },
   {
     question: "¿Ofrecen servicio de graduación?",
-    answer: "Sí, ofrecemos servicio de graduación en todos nuestros modelos de lentes de lectura. Consulta con nuestro equipo para más información.",
+    answer:
+      "Sí, ofrecemos servicio de graduación en todos nuestros modelos de lentes de lectura. Consulta con nuestro equipo para más información.",
+  },
+  {
+    question: "¿Cómo coordino una prueba?",
+    answer:
+      "Podés escribirnos por DM de Instagram y coordinamos un día y horario para que vengas a probarte los modelos que más te gusten.",
+  },
+  {
+    question: "¿Cómo les envío mi receta?",
+    answer:
+      "Sacale una foto clara a tu receta y envíala por DM de Instagram. Nuestro equipo la revisa y te asesora con las mejores opciones para tu graduación.",
   },
 ]
 
 const socialLinks = [
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com/optik" },
+  { name: "Instagram", icon: Instagram, href: "https://instagram.com/_opti.k" },
   { name: "Facebook", icon: Facebook, href: "https://facebook.com/optik" },
 ]
 
@@ -66,15 +80,15 @@ export function Footer() {
               Miradas que destacan. Porque los anteojos no solo corrigen la visión, También expresan personalidad.
             </p>
             
-            {/* WhatsApp Contact */}
+            {/* Instagram Contact */}
             <a
-              href="https://wa.me/1234567890"
+              href="https://ig.me/m/optik"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-sm"
             >
-              <MessageCircle className="w-4 h-4" />
-              Contáctanos por WhatsApp
+              <Instagram className="w-4 h-4" />
+              Escríbenos por Instagram
             </a>
           </div>
 
