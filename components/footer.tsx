@@ -82,7 +82,7 @@ export function Footer() {
             
             {/* Instagram Contact */}
             <a
-              href="https://ig.me/m/optik"
+              href="https://ig.me/m/_opti.k"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-sm"

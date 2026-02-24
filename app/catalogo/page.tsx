@@ -150,6 +150,12 @@ const buildConsultMessage = (product: Product) => {
   return `Hola, me interesa el modelo ${product.name}.`
 }
 
+// En móvil/app abre Instagram con el mensaje prellenado; el usuario solo pulsa Enviar.
+const getInstagramDmUrl = (product: Product) => {
+  const text = buildConsultMessage(product)
+  return `https://ig.me/m/${INSTAGRAM_USERNAME}?text=${encodeURIComponent(text)}`
+}
+
 type Category = typeof filters.category[number]
 type Gender = typeof filters.gender[number]
 
@@ -312,25 +318,20 @@ export default function CatalogoPage() {
                     </p>
                     
                     <Button
-                      type="button"
                       variant="outline"
                       size="sm"
                       className="mt-2 w-full justify-center gap-2"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        const message = buildConsultMessage(product)
-                        if (navigator.clipboard?.writeText) {
-                          navigator.clipboard.writeText(message).catch(() => {})
-                        }
-                        window.open(
-                          `https://ig.me/m/${INSTAGRAM_USERNAME}`,
-                          "_blank",
-                          "noopener,noreferrer"
-                        )
-                      }}
+                      asChild
                     >
-                      <Instagram className="w-4 h-4" />
-                      Consultar por Instagram
+                      <a
+                        href={getInstagramDmUrl(product)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Instagram className="w-4 h-4" />
+                        Consultar por Instagram
+                      </a>
                     </Button>
                   </div>
                 </div>
