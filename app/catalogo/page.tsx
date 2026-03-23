@@ -9,128 +9,22 @@ import { Heart, ArrowLeft, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { useProducts } from "@/hooks/use-products"
 
-const products = [
-  {
-    id: 1,
-    name: "City Polar",
-    category: "Sol Urbano",
-    gender: "Unisex",
-    price: 89.99,
-    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80",
-  },
-  {
-    id: 2,
-    name: "Urban Sharp",
-    category: "Recetados",
-    gender: "Hombre",
-    price: 59.99,
-    image: "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400&q=80",
-  },
-  {
-    id: 3,
-    name: "Silk Frame",
-    category: "Recetados",
-    gender: "Mujer",
-    price: 79.99,
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&q=80",
-  },
-  {
-    id: 4,
-    name: "Trail Shield",
-    category: "Sol Deportivo",
-    gender: "Hombre",
-    price: 109.99,
-    image: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&q=80",
-  },
-  {
-    id: 5,
-    name: "City Round",
-    category: "Sol Urbano",
-    gender: "Mujer",
-    price: 94.99,
-    image: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400&q=80",
-  },
-  {
-    id: 6,
-    name: "Focus Square",
-    category: "Recetados",
-    gender: "Unisex",
-    price: 69.99,
-    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80",
-  },
-  {
-    id: 7,
-    name: "Sprint Edge",
-    category: "Sol Deportivo",
-    gender: "Mujer",
-    price: 99.99,
-    image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400&q=80",
-  },
-  {
-    id: 8,
-    name: "Pro Classic",
-    category: "Recetados",
-    gender: "Hombre",
-    price: 84.99,
-    image: "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=400&q=80",
-  },
-  {
-    id: 9,
-    name: "Kids Play",
-    category: "Nino",
-    gender: "Nino",
-    price: 49.99,
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
-  },
-  {
-    id: 10,
-    name: "Kids Bloom",
-    category: "Nino",
-    gender: "Nina",
-    price: 49.99,
-    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
-  },
-  {
-    id: 11,
-    name: "Estuche clásico",
-    category: "Accesorios",
-    gender: "Unisex",
-    price: 24.99,
-    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80",
-  },
-  {
-    id: 12,
-    name: "Líquido limpiador",
-    category: "Accesorios",
-    gender: "Unisex",
-    price: 12.99,
-    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80",
-  },
-  {
-    id: 13,
-    name: "Paño de microfibra",
-    category: "Accesorios",
-    gender: "Unisex",
-    price: 8.99,
-    image: "https://images.unsplash.com/photo-1633383461175-ee3a4d8d7442?w=400&q=80",
-  },
-  {
-    id: 14,
-    name: "Kit cuidado completo",
-    category: "Accesorios",
-    gender: "Unisex",
-    price: 34.99,
-    image: "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
-  },
-]
 
 const filters = {
   category: ["Todos", "Recetados", "Sol Urbano", "Sol Deportivo", "Nino", "Accesorios"],
   gender: ["Todos", "Hombre", "Mujer", "Unisex", "Nino", "Nina"],
 } as const
 
-type Product = (typeof products)[number]
+type Product = {
+  id: number
+  name: string
+  category: string
+  gender: string
+  price: number
+  image: string
+}
 
 const INSTAGRAM_USERNAME = "_opti.k"
 
@@ -150,45 +44,35 @@ const buildConsultMessage = (product: Product) => {
   return `Hola, me interesa el modelo ${product.name}.`
 }
 
-type Category = typeof filters.category[number]
-type Gender = typeof filters.gender[number]
 
 export default function CatalogoPage() {
+  const {
+    products,
+    setActiveCategory,
+    setActiveGender,
+    activeCategory,
+    activeGender,
+    loading,
+  } = useProducts();
   const searchParams = useSearchParams()
-
-  const [activeCategory, setActiveCategory] = useState<Category>("Todos")
-  const [activeGender, setActiveGender] = useState<Gender>("Todos")
+  
   const [favorites, setFavorites] = useState<number[]>([])
-
+  
   useEffect(() => {
-    const categoria = searchParams.get("categoria")
-    const genero = searchParams.get("genero")
-
-    if (categoria && filters.category.includes(categoria as Category)) {
-      setActiveCategory(categoria as Category)
-    }
-
-    if (genero && filters.gender.includes(genero as Gender)) {
-      setActiveGender(genero as Gender)
-    }
-  }, [searchParams])
-
-  const filteredProducts = products.filter((product) => {
-    const categoryMatch =
-      activeCategory === "Todos" || product.category === activeCategory
-    const genderMatch =
-      activeGender === "Todos" || product.gender === activeGender
-
-    return categoryMatch && genderMatch
-  })
-
+    const categoria = searchParams.get("categoria");
+    const genero = searchParams.get("genero");
+    
+    if (categoria) setActiveCategory(categoria);
+    if (genero) setActiveGender(genero);
+  }, [searchParams]);
+  
   const toggleFavorite = (id: number) => {
     setFavorites((prev) =>
-      prev.includes(id)
-        ? prev.filter((fav) => fav !== id)
-        : [...prev, id]
-    )
-  }
+        prev.includes(id)
+          ? prev.filter((fav) => fav !== id)
+          : [...prev, id]
+      )
+    }
 
   return (
     <main className="min-h-screen">
@@ -261,7 +145,7 @@ export default function CatalogoPage() {
 
             {/* Product Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
+              {products.map((product) => (
                 <div
                   key={product.id}
                   className="group bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow"
@@ -337,7 +221,7 @@ export default function CatalogoPage() {
               ))}
             </div>
 
-            {filteredProducts.length === 0 && (
+            {products.length === 0 && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground">
                   No se encontraron productos con los filtros seleccionados.
