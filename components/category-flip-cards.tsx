@@ -2,72 +2,68 @@
 
 import React from "react"
 
-import { useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Glasses, Sun, User, Users, Package } from "lucide-react"
 
 import { OptikHoverButton } from "@/components/optik-hover-button"
 
-type Category = "recetados" | "sol-urbano" | "sol-deportivo" | "nino" | "accesorios"
-type Gender = "hombre" | "mujer" | "nino" | "nina"
-
-interface FlipCardProps {
-  id: Category
-  type: Category
-  title: string
-  subtitle: string
-  icon: React.ReactNode
-  isFlipped: boolean
-  onToggle: (id: Category) => void
+type Product = {
+  id: number
+  name: string
+  category: string
+  gender: string
+  price: number
+  image: string
 }
 
-const isUnisexCategory = (t: Category) =>
-  t === "sol-urbano" || t === "sol-deportivo" || t === "accesorios"
+type CategoryCard = {
+  id: string
+  title: string
+  subtitle: string
+  image: string
+  icon: React.ReactNode
+  genders: string[]
+}
 
-function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: FlipCardProps) {
-  const handleNavigate = (gender?: Gender) => {
-    const categoryMap: Record<Category, string> = {
-      recetados: "Recetados",
-      "sol-urbano": "Sol Urbano",
-      "sol-deportivo": "Sol Deportivo",
-      nino: "Nino",
-      accesorios: "Accesorios",
-    }
-    const genderParamMap: Record<Gender, string> = {
-      hombre: "Hombre",
-      mujer: "Mujer",
-      nino: "Nino",
-      nina: "Nina",
-    }
-    const category = categoryMap[type]
-    const baseUrl = `/catalogo?categoria=${category}`
-    const url =
-      gender !== undefined ? `${baseUrl}&genero=${genderParamMap[gender]}` : baseUrl
-    window.location.href = url
+interface FlipCardProps {
+  id: string
+  category: string
+  title: string
+  subtitle: string
+  bgImage: string
+  genders: string[]
+  icon: React.ReactNode
+  isFlipped: boolean
+  onToggle: (id: string) => void
+}
+
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+
+const getCategoryIcon = (category: string) => {
+  const normalized = category.toLowerCase()
+  if (normalized.includes("sol")) return <Sun className="w-8 h-8 text-background" />
+  if (normalized.includes("accesorio")) return <Package className="w-8 h-8 text-background" />
+  return <Glasses className="w-8 h-8 text-background" />
+}
+
+function FlipCard({ id, category, title, subtitle, bgImage, genders, icon, isFlipped, onToggle }: FlipCardProps) {
+  const handleNavigate = (gender?: string) => {
+    const params = new URLSearchParams({ categoria: category })
+    if (gender) params.set("genero", gender)
+    window.location.href = `/catalogo?${params.toString()}`
   }
 
-  const bgImageMap: Record<Category, string> = {
-    recetados:
-      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&q=80",
-    "sol-urbano":
-      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80",
-    "sol-deportivo":
-      "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&q=80",
-    nino: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&q=80",
-    accesorios:
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&q=80",
-  }
-  const bgImage = bgImageMap[type]
-
-  const backOptions: { label: string; value?: Gender }[] = isUnisexCategory(type)
-    ? [{ label: "Ver colección", value: undefined }]
-    : type === "nino"
-      ? [
-          { label: "Nino", value: "nino" as Gender },
-          { label: "Nina", value: "nina" as Gender },
-        ]
+  const normalizedGenders = genders.filter((gender) => gender.toLowerCase() !== "unisex")
+  const backOptions: { label: string; value?: string }[] = normalizedGenders.length <= 1
+    ? [{ label: "Ver coleccion", value: undefined }]
       : [
-          { label: "Hombre", value: "hombre" as Gender },
-          { label: "Mujer", value: "mujer" as Gender },
+          ...normalizedGenders.map((gender) => ({ label: gender, value: gender })),
         ]
 
   return (
@@ -158,9 +154,45 @@ function FlipCard({ id, type, title, subtitle, icon, isFlipped, onToggle }: Flip
 }
 
 export function CategoryFlipCards() {
-  const [activeCardId, setActiveCardId] = useState<Category | null>(null)
+  const [activeCardId, setActiveCardId] = useState<string | null>(null)
+  const [products, setProducts] = useState<Product[]>([])
 
-  const handleToggle = (id: Category) => {
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const res = await fetch("/products.json")
+        const data = await res.json()
+        setProducts(data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    loadProducts()
+  }, [])
+
+  const categories = useMemo<CategoryCard[]>(() => {
+    const byCategory = products.reduce<Record<string, Product[]>>((acc, product) => {
+      acc[product.category] = acc[product.category] ? [...acc[product.category], product] : [product]
+      return acc
+    }, {})
+
+    return Object.entries(byCategory)
+      .map(([category, categoryProducts]) => {
+        const uniqueGenders = [...new Set(categoryProducts.map((product) => product.gender))]
+        return {
+          id: slugify(category),
+          title: category,
+          subtitle: `${categoryProducts.length} producto${categoryProducts.length === 1 ? "" : "s"} disponibles`,
+          image: categoryProducts[0]?.image ?? "",
+          icon: getCategoryIcon(category),
+          genders: uniqueGenders,
+        }
+      })
+      .sort((a, b) => a.title.localeCompare(b.title))
+  }, [products])
+
+  const handleToggle = (id: string) => {
     setActiveCardId((prev) => (prev === id ? null : id))
   }
 
@@ -177,51 +209,20 @@ export function CategoryFlipCards() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
-          <FlipCard
-            id="recetados"
-            type="recetados"
-            title="Recetados"
-            subtitle="Precision para tu dia a dia"
-            icon={<Glasses className="w-8 h-8 text-background" />}
-            isFlipped={activeCardId === "recetados"}
-            onToggle={handleToggle}
-          />
-          <FlipCard
-            id="sol-urbano"
-            type="sol-urbano"
-            title="Sol Urbanos"
-            subtitle="Estilo para la ciudad"
-            icon={<Sun className="w-8 h-8 text-background" />}
-            isFlipped={activeCardId === "sol-urbano"}
-            onToggle={handleToggle}
-          />
-          <FlipCard
-            id="sol-deportivo"
-            type="sol-deportivo"
-            title="Sol Deportivos"
-            subtitle="Rendimiento y proteccion"
-            icon={<Sun className="w-8 h-8 text-background" />}
-            isFlipped={activeCardId === "sol-deportivo"}
-            onToggle={handleToggle}
-          />
-          <FlipCard
-            id="nino"
-            type="nino"
-            title="Nino"
-            subtitle="Comodidad para los mas chicos"
-            icon={<Glasses className="w-8 h-8 text-background" />}
-            isFlipped={activeCardId === "nino"}
-            onToggle={handleToggle}
-          />
-          <FlipCard
-            id="accesorios"
-            type="accesorios"
-            title="Accesorios"
-            subtitle="Estuches, líquidos y más"
-            icon={<Package className="w-8 h-8 text-background" />}
-            isFlipped={activeCardId === "accesorios"}
-            onToggle={handleToggle}
-          />
+          {categories.map((category) => (
+            <FlipCard
+              key={category.id}
+              id={category.id}
+              category={category.title}
+              title={category.title}
+              subtitle={category.subtitle}
+              bgImage={category.image}
+              genders={category.genders}
+              icon={category.icon}
+              isFlipped={activeCardId === category.id}
+              onToggle={handleToggle}
+            />
+          ))}
         </div>
       </div>
     </section>

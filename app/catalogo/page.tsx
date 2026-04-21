@@ -11,12 +11,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { useProducts } from "@/hooks/use-products"
 
-
-const filters = {
-  category: ["Todos", "Recetados", "Sol Urbano", "Sol Deportivo", "Nino", "Accesorios"],
-  gender: ["Todos", "Hombre", "Mujer", "Unisex", "Nino", "Nina"],
-} as const
-
 type Product = {
   id: number
   name: string
@@ -24,9 +18,11 @@ type Product = {
   gender: string
   price: number
   image: string
+  description: string
 }
 
 const INSTAGRAM_USERNAME = "_opti.k"
+const ALL_FILTER = "Todos"
 
 const buildConsultMessage = (product: Product) => {
   if (product.category === "Recetados") {
@@ -38,8 +34,11 @@ const buildConsultMessage = (product: Product) => {
   if (product.category === "Sol Urbano") {
     return `Hola, me interesan los lentes urbanos del modelo ${product.name}.`
   }
-  if (product.category === "Accesorios") {
-    return `Hola, me interesa el accesorio ${product.name}.`
+    if (product.category === "Accesorios") {
+      return `Hola, me interesa el accesorio ${product.name}.`
+    }
+  if (product.category === "Recetados Clip On") {
+    return `Hola, me interesan los lentes recetados clip on del modelo ${product.name}.`
   }
   return `Hola, me interesa el modelo ${product.name}.`
 }
@@ -48,6 +47,7 @@ const buildConsultMessage = (product: Product) => {
 export default function CatalogoPage() {
   const {
     products,
+    filterGroups,
     setActiveCategory,
     setActiveGender,
     activeCategory,
@@ -103,7 +103,7 @@ export default function CatalogoPage() {
             {/* Filters */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <div className="flex flex-wrap justify-center gap-2">
-                {filters.category.map((cat) => (
+                {[ALL_FILTER, ...filterGroups.categoria.map((option) => option.value)].map((cat) => (
                   <Button
                     key={cat}
                     type="button"
@@ -124,7 +124,7 @@ export default function CatalogoPage() {
               <div className="hidden sm:block w-px bg-border" />
 
               <div className="flex flex-wrap justify-center gap-2">
-                {filters.gender.map((gen) => (
+                {[ALL_FILTER, ...filterGroups.genero.map((option) => option.value)].map((gen) => (
                   <Button
                     key={gen}
                     type="button"
@@ -191,6 +191,9 @@ export default function CatalogoPage() {
                     <h3 className="font-medium text-foreground mb-1">
                       {product.name}
                     </h3>
+                    <p className="text-xs text-muted-foreground mb-2 line-clamp-3 text-balance">
+                      {product.description}
+                    </p>
                     <p className="text-lg font-semibold text-foreground">
                       ${product.price.toFixed(2)}
                     </p>
