@@ -13,7 +13,7 @@
     "id": 2,
     "name": "Urban Sharp",
     "category": "Recetados",
-    "gender": "Hombre",
+    "gender": "Caballero",
     "price": 59.99,
     "image": "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400&q=80",
     "description": "El Urban Sharp es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -22,7 +22,7 @@
     "id": 3,
     "name": "Silk Frame",
     "category": "Recetados",
-    "gender": "Mujer",
+    "gender": "Dama",
     "price": 79.99,
     "image": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&q=80",
     "description": "El Silk Frame es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -31,7 +31,7 @@
     "id": 4,
     "name": "Trail Shield",
     "category": "Sol Deportivo",
-    "gender": "Hombre",
+    "gender": "Caballero",
     "price": 109.99,
     "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&q=80",
     "description": "El Trail Shield es un sol deportivo que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -40,7 +40,7 @@
     "id": 5,
     "name": "City Round",
     "category": "Sol Urbano",
-    "gender": "Mujer",
+    "gender": "Dama",
     "price": 94.99,
     "image": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400&q=80",
     "description": "El City Round es un sol urbano que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -58,7 +58,7 @@
     "id": 7,
     "name": "Sprint Edge",
     "category": "Sol Deportivo",
-    "gender": "Mujer",
+    "gender": "Dama",
     "price": 99.99,
     "image": "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400&q=80",
     "description": "El Sprint Edge es un sol deportivo que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -67,7 +67,7 @@
     "id": 8,
     "name": "Pro Classic",
     "category": "Recetados",
-    "gender": "Hombre",
+    "gender": "Caballero",
     "price": 84.99,
     "image": "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=400&q=80",
     "description": "El Pro Classic es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -76,7 +76,7 @@
     "id": 9,
     "name": "Kids Play",
     "category": "Infantil",
-    "gender": "Hombre",
+    "gender": "Caballero",
     "price": 49.99,
     "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
     "description": "El Kids Play es un sol infantil que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -85,7 +85,7 @@
     "id": 10,
     "name": "Kids Bloom",
     "category": "Infantil",
-    "gender": "Mujer",
+    "gender": "Dama",
     "price": 49.99,
     "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
     "description": "El Kids Bloom es un sol infantil que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -130,7 +130,7 @@
     "id": 15,
     "name": "Recetados Clip On",
     "category": "Recetados Clip On",
-    "gender": "Hombre",
+    "gender": "Caballero",
     "price": 19.99,
     "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
     "description": "El Recetados Clip On es un accesorio que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
@@ -139,7 +139,7 @@
     "id": 16,
     "name": "Recetados Clip On",
     "category": "Recetados Clip On",
-    "gender": "Mujer",
+    "gender": "Dama",
     "price": 17.99,
     "image": "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&q=80",
     "description": "El Recetados Clip On es un accesorio que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
