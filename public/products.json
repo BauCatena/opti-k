@@ -2,12 +2,12 @@
 [
   {
     "id": 1,
-    "name": "City Polar",
-    "category": "Sol Urbano",
+    "name": "MVK Kids Purple Wave",
+    "category": "Infantiles",
     "gender": "Unisex",
-    "price": 89.99,
-    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=80",
-    "description": "El City Polar es un sol urbano que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "price": "82.500",
+    "image": "https://github.com/BauCatena/opti-k/tree/031caae8aabd7a4f67c13eea776fc998e3da865f/public/infantiles/infantiles1",
+    "description": "Armazón infantil de silicona flexible. Diseño rectangular en color azul y violeta, cómodo, liviano y resistente para el uso diario."
   },
   {
     "id": 2,
