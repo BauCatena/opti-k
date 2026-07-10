@@ -47,30 +47,84 @@
   },
   {
     "id": 6,
-    "name": "Focus Square",
-    "category": "Recetados",
+    "name": "Blaze Mirror",
+    "category": "Deportivos",
     "gender": "Unisex",
-    "price": 69.99,
-    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&q=80",
-    "description": "El Focus Square es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos1.jfif",
+    "description": "Anteojo deportivo de estilo envolvente con lente espejado en tonos fuego, polarizado para máxima protección contra el reflejo del sol. Ideal para running, ciclismo y actividades al aire libre."
   },
   {
     "id": 7,
-    "name": "Sprint Edge",
-    "category": "Sol Deportivo",
-    "gender": "Dama",
-    "price": 99.99,
-    "image": "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400&q=80",
-    "description": "El Sprint Edge es un sol deportivo que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "name": "Shadow Shield",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos2.jfif",
+    "description": "Diseño con lente negro polarizado, brinda cobertura total y máxima estabilidad para entrenamientos de alta intensidad."
   },
   {
     "id": 8,
-    "name": "Pro Classic",
-    "category": "Recetados",
-    "gender": "Caballero",
-    "price": 84.99,
-    "image": "https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=400&q=80",
-    "description": "El Pro Classic es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "name": "ChromaShift Pro",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos3.jfif",
+    "description": "Lente fotocromático que se adapta automáticamente a la intensidad de luz, oscureciéndose al aire libre y aclarándose en interiores. Perfecto para quienes entrenan en distintos horarios y condiciones de luz."
+  },
+  {
+    "id": 9,
+    "name": "Ocean Flash",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos4.jfif",
+    "description": "Anteojo deportivo con lente espejado azul intenso y polarización, diseñado para reducir el encandilamiento en deportes de alta velocidad."
+  },
+  {
+    "id": 10,
+    "name": "AdaptLight Silver",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos5.jfif",
+    "description": "Modelo con tecnología fotocromática, se ajusta automáticamente a los cambios de luminosidad. Marco liviano y resistente ideal para uso deportivo diario."
+  },
+  {
+    "id": 11,
+    "name": "Urban Runner",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos6.jfif",
+    "description": "Anteojo deportivo clásico de lente negro polarizado, con marco robusto y diseño versátil para uso tanto deportivo como urbano."
+  },
+  {
+    "id": 12,
+    "name": "SpectrumFit",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos7.jfif",
+    "description": "Lente espejado multicolor polarizado con sistema de recambio de placas, permite adaptar la protección solar según la actividad. Diseño aerodinámico pensado para ciclismo y running."
+  },
+  {
+    "id": 13,
+    "name": "MultiVision Set",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos8.jfif",
+    "description": "Kit deportivo intercambiable y set de lentes de recambio (transparente, amarillo, celeste y ahumado polarizado), ideal para adaptarse a distintas condiciones de luz durante el entrenamiento."
+  },
+  {
+    "id": 14,
+    "name": "ColorSwap Kit",
+    "category": "Deportivos",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/deportivos/deportivos9.jfif",
+    "description": "Set completo de anteojo deportivo con 5 lentes intercambiables en distintos tonos y niveles de protección."
   },
   {
     "id": 9,
