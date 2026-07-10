@@ -235,6 +235,69 @@
     "description": "Armazón cuadrado bordó con protección de luz azul. Diseño amplio y elegante, ideal para uso frente a pantallas."
   },
   {
+    "id": 27,
+    "name": "Sapphire Cat",
+    "category": "Dama",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon1.jfif",
+    "description": "Armazón cat-eye en metal negro con detalles dorados, incluye clip solar polarizado en tono negro. Ideal para transformar tu look de óptico a moderno en segundos."
+  },
+  {
+    "id": 28,
+    "name": "Golden Panther",
+    "category": "Dama",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon2.jfif",
+    "description": "Armazón cat-eye en metal negro con varillas doradas, incluye clip solar. Un diseño elegante y perfecto para el día a día."
+  },
+  {
+    "id": 29,
+    "name": "Crystal Clear",
+    "category": "Dama",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon3.jfif",
+    "description": "Armazón cuadrado en acetato transparente TR90 con protección de luz, incluye clip solar polarizado gris. Versátil y liviano, perfecto para cualquier outfit."
+  },
+  {
+    "id": 30,
+    "name": "Silver Oval",
+    "category": "Dama",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon4.jfif",
+    "description": "Armazón ovalado en metal plateado y negro, incluye clip solar tipo aviador con degradé oscuro. Un modelo sofisticado con toque retro."
+  },
+  {
+    "id": 31,
+    "name": "Navy Executive",
+    "category": "Caballero",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon5.jfif",
+    "description": "Armazón rectangular en acetato negro con interior azul marino, incluye clip solar negro mate. Un diseño clásico y prolijo."
+  },
+  {
+    "id": 32,
+    "name": "Onyx Bold",
+    "category": "Caballero",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon6.jfif",
+    "description": "Armazón rectangular en negro, incluye clip solar de tamaño amplio en negro mate. Un modelo firme y masculino para uso diario."
+  },
+  {
+    "id": 33,
+    "name": "Wine Rectangle",
+    "category": "Caballero",
+    "gender": "Recetados Clip On",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/clip-on/clipon7.jfif",
+    "description": "Armazón rectangular en color gris, incluye clip solar negro en tono negro. Combina estilo clásico con un toque distintivo."
+  },
+  {
     "id": 14,
     "name": "Kit cuidado completo",
     "category": "Accesorios",
