@@ -2,12 +2,12 @@
 [
   {
     "id": 1,
-    "name": "MVK Kids Purple Wave",
-    "category": "Infantiles",
+    "name": "Estuche rígido para anteojos",
+    "category": "Accesorios",
     "gender": "Unisex",
     "price": "",
-    "image": "",
-    "description": "Armazón infantil de silicona flexible. Diseño rectangular en color azul y violeta, cómodo, liviano y resistente para el uso diario."
+    "image": "/accesorios/accesorios1.jfif",
+    "description": ""
   },
   {
     "id": 2,
