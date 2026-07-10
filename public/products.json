@@ -127,49 +127,112 @@
     "description": "Set completo de anteojo deportivo con 5 lentes intercambiables en distintos tonos y niveles de protección."
   },
   {
-    "id": 9,
-    "name": "Kids Play",
-    "category": "Infantil",
-    "gender": "Caballero",
-    "price": 49.99,
-    "image": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80",
-    "description": "El Kids Play es un sol infantil que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "id": 15,
+    "name": "Redline Classic",
+    "category": "Caballero",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato1.jfif",
+    "description": "Armazón rectangular TR90 negro con detalle interior en rojo. Diseño moderno, ideal para uso diario en la oficina o el día a día."
   },
   {
-    "id": 10,
-    "name": "Kids Bloom",
-    "category": "Infantil",
-    "gender": "Dama",
-    "price": 49.99,
-    "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&q=80",
-    "description": "El Kids Bloom es un sol infantil que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "id": 16,
+    "name": "Blue Steel",
+    "category": "Caballero",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato2.jfif",
+    "description": "Armazón rectangular TR90 azul mate, de líneas rectas y varillas flexibles. Un clásico moderno para un look profesional y contemporáneo."
   },
   {
-    "id": 11,
-    "name": "Estuche clásico",
-    "category": "Accesorios",
-    "gender": "Unisex",
-    "price": 24.99,
-    "image": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80",
-    "description": "El Estuche clásico es un accesorio que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "id": 17,
+    "name": "Midnight Slim",
+    "category": "Caballero",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato3.jfif",
+    "description": "Armazón rectangular TR90 negro de perfil fino, liviano y minimalista. Perfecto para quienes buscan un estilo discreto y elegante."
   },
   {
-    "id": 12,
-    "name": "Líquido limpiador",
-    "category": "Accesorios",
-    "gender": "Unisex",
-    "price": 12.99,
-    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80",
-    "description": "El Líquido limpiador es un accesorio que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "id": 18,
+    "name": "Round Majestic",
+    "category": "Caballero",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato4.jfif",
+    "description": "Armazón redondo TR90 negro, brinda mayor flexibilidad y resistencia. Un diseño atemporal con toque retro."
   },
   {
-    "id": 13,
-    "name": "Paño de microfibra",
-    "category": "Accesorios",
-    "gender": "Unisex",
-    "price": 8.99,
-    "image": "https://images.unsplash.com/photo-1633383461175-ee3a4d8d7442?w=400&q=80",
-    "description": "El Paño de microfibra es un accesorio que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "id": 19,
+    "name": "Ocean Round",
+    "category": "Caballero",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato5.jfif",
+    "description": "Armazón redondo TR90 azul profundo, de estilo vintage con acabado mate. Ideal para un look sofisticado y diferente."
+  },
+  {
+    "id": 20,
+    "name": "Feline Black",
+    "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato6.jfif",
+    "description": "Armazón estilo cat-eye en acetato negro TR90, liviano y resistente. Realza el rostro con un toque femenino y elegante."
+  },
+  {
+    "id": 21,
+    "name": "Sunset Fade",
+    "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato7.jfif",
+    "description": "Armazón con degradé de tonos azul y rosa. Un diseño único y colorido para quienes buscan destacar con estilo."
+  },
+  {
+    "id": 22,
+    "name": "Rose Quartz",
+    "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato8.jfif",
+    "description": "Armazón rosado y gris. Aporta un toque delicado y moderno a cualquier look."
+  },
+  {
+    "id": 23,
+    "name": "Mauve Cat",
+    "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato9.jfif",
+    "description": "Armazón cat-eye en tono morado con varillas en estampado animal print. Un diseño llamativo y sofisticado para looks con personalidad."
+  },
+  {
+    "id": 24,
+    "name": "Duo Contrast",
+     "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato10.jfif",
+    "description": "Armazón ovalado TR90 negro con interior blanco, combinación de contraste que aporta frescura y estilo juvenil."
+  },
+  {
+    "id": 25,
+    "name": "Smoke Oversized",
+    "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato11.jfif",
+    "description": "Armazón oversize en gris translúcido con protección de luz azul. Un modelo grande y moderno, tendencia total para looks urbanos."
+  },
+  {
+    "id": 26,
+    "name": "Burgundy Square",
+    "category": "Dama",
+    "gender": "Recetados",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/graduados/acetato/acetato12.jfif",
+    "description": "Armazón cuadrado bordó con protección de luz azul. Diseño amplio y elegante, ideal para uso frente a pantallas."
   },
   {
     "id": 14,
