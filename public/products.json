@@ -2,48 +2,48 @@
 [
   {
     "id": 1,
-    "name": "Estuche rígido para anteojos",
+    "name": "Estuche Rígido Clásico",
     "category": "Accesorios",
     "gender": "Unisex",
     "price": "",
-    "image": "/accesorios/accesorios1.jfif",
-    "description": ""
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/accesorios/accesorios1.jfif",
+    "description": "Estuche rígido para anteojos, ideal para proteger tus lentes de golpes y rayones durante el traslado diario."
   },
   {
     "id": 2,
-    "name": "Urban Sharp",
-    "category": "Recetados",
-    "gender": "Caballero",
-    "price": 59.99,
-    "image": "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=400&q=80",
-    "description": "El Urban Sharp es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "name": "Funda Textil para Anteojos de Sol",
+    "category": "Accesorios",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/accesorios/accesorios2.jfif",
+    "description": "Funda de tela suave con cordón, pensada para guardar y proteger tus anteojos de sol de forma práctica."
   },
   {
     "id": 3,
-    "name": "Silk Frame",
-    "category": "Recetados",
-    "gender": "Dama",
-    "price": 79.99,
-    "image": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&q=80",
-    "description": "El Silk Frame es un sol recetado que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "name": "Limpiador de Cristales",
+    "category": "Accesorios",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/accesorios/accesorios3.jfif",
+    "description": "Líquido limpiador especial para cristales, elimina manchas y residuos sin dañar los tratamientos de tus lentes."
   },
   {
     "id": 4,
-    "name": "Trail Shield",
-    "category": "Sol Deportivo",
-    "gender": "Caballero",
-    "price": 109.99,
-    "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&q=80",
-    "description": "El Trail Shield es un sol deportivo que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "name": "Sujetadores Antideslizantes",
+    "category": "Accesorios",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/accesorios/accesorios4.jfif",
+    "description": "Ganchos antideslizantes que se adaptan a tus anteojos para mayor firmeza y comodidad durante todo el día."
   },
   {
     "id": 5,
-    "name": "City Round",
-    "category": "Sol Urbano",
-    "gender": "Dama",
-    "price": 94.99,
-    "image": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400&q=80",
-    "description": "El City Round es un sol urbano que se caracteriza por su diseño clásico y elegante. Es perfecto para el día a día y para cualquier ocasión."
+    "name": "Estuche Deportivo",
+    "category": "Accesorios",
+    "gender": "Unisex",
+    "price": "",
+    "image": "https://raw.githubusercontent.com/BauCatena/opti-k/main/public/accesorios/accesorios5.jfif",
+    "description": "Estuche resistente diseñado especialmente para anteojos deportivos, brindando protección extra en actividades físicas."
   },
   {
     "id": 6,
